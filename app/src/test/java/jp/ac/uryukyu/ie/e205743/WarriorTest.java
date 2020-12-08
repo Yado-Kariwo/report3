@@ -9,19 +9,26 @@ import static org.junit.jupiter.api.Assertions.*;
 class WarriorTest{
     @Test
     void attackWithWeponSkillTest() {
-    int correctDamage = 15;
+    int num_warrior = 3;
+    int correctDamageA = 15;
+    int correctDamageB = 30;
+    int correctDamageC = 60;
+    int[] correctDamage = {correctDamageA, correctDamageB, correctDamageC};
     int defaultHitPoint = 100;
-    Warrior demowarrior = new Warrior("デモ戦士", 100, 10);
+    Warrior demowarriorA = new Warrior("デモ戦士", 100, 10);
+    Warrior demowarriorB = new Warrior("デモ戦士", 100, 20);
+    Warrior demowarriorC = new Warrior("デモ戦士", 100, 40);
     Enemy slime1 = new Enemy("スライムA", defaultHitPoint, 10);
     Enemy slime2 = new Enemy("スライムB", defaultHitPoint, 10);
     Enemy slime3 = new Enemy("スライムC", defaultHitPoint, 10);
-    demowarrior.attackWithWeponSkill(slime1);
-    demowarrior.attackWithWeponSkill(slime2);
-    demowarrior.attackWithWeponSkill(slime3);
+    demowarriorA.attackWithWeponSkill(slime1);
+    demowarriorB.attackWithWeponSkill(slime2);
+    demowarriorC.attackWithWeponSkill(slime3);
     int[] document = {slime1.getHitPoint(), slime2.getHitPoint(), slime3.getHitPoint()};
-    for (int test: document){
-        int result = defaultHitPoint - test;
-        assertEquals(correctDamage, result);
+    for (int i =0; i<3; i++){
+        int result = defaultHitPoint - document[i];
+        assertEquals(correctDamage[i], result);
+
     }
     }
 }
