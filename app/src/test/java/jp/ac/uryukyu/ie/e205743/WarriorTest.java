@@ -15,9 +15,9 @@ class WarriorTest{
     int correctDamageC = 60;
     int[] correctDamage = {correctDamageA, correctDamageB, correctDamageC};
     int defaultHitPoint = 100;
-    Warrior demowarriorA = new Warrior("デモ戦士", 100, 10);
-    Warrior demowarriorB = new Warrior("デモ戦士", 100, 20);
-    Warrior demowarriorC = new Warrior("デモ戦士", 100, 40);
+    Warrior demowarriorA = new Warrior("デモ戦士A", 100, 10);
+    Warrior demowarriorB = new Warrior("デモ戦士B", 100, 20);
+    Warrior demowarriorC = new Warrior("デモ戦士CC", 100, 40);
     Enemy slime1 = new Enemy("スライムA", defaultHitPoint, 10);
     Enemy slime2 = new Enemy("スライムB", defaultHitPoint, 10);
     Enemy slime3 = new Enemy("スライムC", defaultHitPoint, 10);
@@ -25,7 +25,7 @@ class WarriorTest{
     demowarriorB.attackWithWeponSkill(slime2);
     demowarriorC.attackWithWeponSkill(slime3);
     int[] document = {slime1.getHitPoint(), slime2.getHitPoint(), slime3.getHitPoint()};
-    for (int i =0; i<3; i++){
+    for (int i =0; i<num_warrior; i++){
         int result = defaultHitPoint - document[i];
         assertEquals(correctDamage[i], result);
 
